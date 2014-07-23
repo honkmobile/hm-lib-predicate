@@ -1,0 +1,19 @@
+{
+  "name": "hm-lib-predicate",
+  "description": "An AngularJS service exporting a collection of predicate functions",
+  "main": "./src/predicate.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/honkmobile/hm-lib-predicate"
+  },
+  "author": "Ryan Albon <ryan@honkmobile.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/honkmobile/hm-lib-predicate/issues"
+  },
+  "homepage": "https://github.com/honkmobile/hm-lib-predicate",
+  "devDependencies": {
+    "gulp-uglify": "~0.3.1",
+    "gulp": "~3.8.6"
+  }
+}
