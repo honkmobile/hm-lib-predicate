@@ -3,7 +3,7 @@
  *
  * @author Ryan Albon <ryan@honkmobile.com>
  */
-;(function (angular, _) {
+;(function (angular) {
   'use strict';
 
   var predicateModule = angular.module('hm.lib.predicate', []);
@@ -14,6 +14,7 @@
       any: any,
       contains: contains,
       equals: equals,
+      is: is,
       isFalse: isFalse,
       isIn: isIn,
       isLongEnough: isLongEnough,
@@ -25,7 +26,6 @@
       isValidMoment: isValidMoment,
       isWhole: isWhole,
       not: not,
-      propertyIsTrue: propertyIsTrue,
     };
   }
 
@@ -59,7 +59,7 @@
 
   function contains(value) {
     return function (collection) {
-      return _.contains(collection, value);
+      return collection.map(is(value)).filter(isTrue).length > 0;
     };
   }
 
@@ -69,13 +69,19 @@
     };
   }
 
+  function is(value) {
+    return function (candidate) {
+      return value === candidate;
+    };
+  }
+
   function isFalse(value) {
     return value === false;
   }
 
   function isIn(collection) {
     return function (value) {
-      return _.contains(collection, value);
+      return collection.map(is(value)).filter(isTrue).length > 0;
     };
   }
 
@@ -115,9 +121,5 @@
     };
   }
 
-  function propertyIsTrue(property) {
-    return _.compose(isTrue, _.property(property));
-  }
-
   predicateModule.factory('hm.lib.predicate.Predicate', predicateFactory);
-})(window.angular, window._);
+})(window.angular);
