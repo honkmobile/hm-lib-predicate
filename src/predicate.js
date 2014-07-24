@@ -18,6 +18,7 @@
       isIn: isIn,
       isLongEnough: isLongEnough,
       isNonNegative: isNonNegative,
+      isNumber: isNumber,
       isOneOf: isIn, // alias
       isPositive: isPositive,
       isTrue: isTrue,
@@ -83,7 +84,7 @@
   }
 
   function isValidMoment(value) {
-    return all(_.isObject, propertyIsTrue('_isAMomentObject'), propertyIsTrue('_isValid'));
+    return typeof value === 'object' && value._isAMomentObject && value._isValid;
   }
 
   function isLongEnough(length) {
@@ -93,15 +94,19 @@
   }
 
   function isNonNegative(value) {
-    return _.isNumber(value) && value >= 0;
+    return isNumber(value) && value >= 0;
+  }
+
+  function isNumber(value) {
+    return typeof value === 'number';
   }
 
   function isPositive(value) {
-    return _.isNumber(value) && value > 0;
+    return isNumber(value) && value > 0;
   }
 
   function isWhole(value) {
-    return _.isNumber(value) && value % 1 === 0;
+    return isNumber(value) && value % 1 === 0;
   }
 
   function not(pred) {
