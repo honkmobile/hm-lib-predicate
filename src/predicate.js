@@ -59,7 +59,7 @@
 
   function contains(value) {
     return function (collection) {
-      return collection.map(is(value)).filter(isTrue).length > 0;
+      return collection.indexOf(value) > -1;
     };
   }
 
@@ -81,7 +81,7 @@
 
   function isIn(collection) {
     return function (value) {
-      return collection.map(is(value)).filter(isTrue).length > 0;
+      return collection.indexOf(value) > -1;
     };
   }
 
