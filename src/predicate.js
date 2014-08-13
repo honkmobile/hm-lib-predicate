@@ -14,6 +14,7 @@
       any: any,
       contains: contains,
       equals: equals,
+      hasProperty: hasProperty,
       is: is,
       isFalse: isFalse,
       isIn: isIn,
@@ -66,6 +67,12 @@
   function equals(value) {
     return function (candidate) {
       return value == candidate;
+    };
+  }
+
+  function hasProperty(property) {
+    return function (obj) {
+      return property in obj;
     };
   }
 
