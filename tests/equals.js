@@ -84,5 +84,12 @@ describe('hm.lib.predicate.Predicate', function () {
       expect(_equalsTrue(0)).toBe(false);
       expect(_equalsTrue(1)).toBe(true);
     });
+
+    it('should work with equivalent string/boolean values', function () {
+      expect(_equals('')(false)).toBe(true);
+      expect(_equals('')(true)).toBe(false);
+      expect(_equals(false)('')).toBe(true);
+      expect(_equals(true)('')).toBe(false);
+    });
   });
 });
