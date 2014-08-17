@@ -19,7 +19,7 @@ describe('hm.lib.predicate.Predicate', function () {
     it('should work with strings', function () {
       var i, string, _isSameString;
 
-      for (i = 0; i < i < 10000; i++) {
+      for (i = 0; i < 10000; i++) {
         string        = Math.random().toString();
         _isSameString = _equals(string);
 
