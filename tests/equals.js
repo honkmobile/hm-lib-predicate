@@ -29,7 +29,7 @@ describe('hm.lib.predicate.Predicate', function () {
       }
     });
 
-    it('should work with numbers', function () {
+    it('should work with positive numbers', function () {
       var i, number, differentNumber, _isSameNumber;
 
       for (i = 0; i < 10000; i++) {
@@ -39,14 +39,50 @@ describe('hm.lib.predicate.Predicate', function () {
 
         expect(_isSameNumber(number)).toBe(true);
         expect(_isSameNumber(differentNumber)).toBe(false);
+      }
+    });
 
-        _isSameNumber = _equals(-number);
+    it('should work with negative numbers', function () {
+      var i, number, differentNumber, _isSameNumber;
 
-        expect(_isSameNumber(-number)).toBe(true);
+      for (i = 0; i < 10000; i++) {
+        number          = -Math.random();
+        differentNumber = number + Math.random();
+        _isSameNumber   = _equals(number);
+
+        expect(_isSameNumber(number)).toBe(true);
         expect(_isSameNumber(differentNumber)).toBe(false);
       }
+    });
 
+    it('should work with zero', function () {
       expect(_equals(0)(0)).toBe(true);
+    });
+
+    it('should work with equivalent numeric/string values', function () {
+      var number  = Math.random(),
+          _isSame = _equals(number);
+
+      expect(_isSame(number.toString())).toBe(true);
+    });
+
+    it('should work with equivalent numeric/boolean values', function () {
+      var _equals0     = _equals(0),
+          _equals1     = _equals(1),
+          _equalsFalse = _equals(false),
+          _equalsTrue  = _equals(true);
+
+      expect(_equals0(false)).toBe(true);
+      expect(_equals0(true)).toBe(false);
+
+      expect(_equals1(false)).toBe(false);
+      expect(_equals1(true)).toBe(true);
+
+      expect(_equalsFalse(0)).toBe(true);
+      expect(_equalsFalse(1)).toBe(false);
+
+      expect(_equalsTrue(0)).toBe(false);
+      expect(_equalsTrue(1)).toBe(true);
     });
   });
 });
