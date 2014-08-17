@@ -1,4 +1,6 @@
 describe('hm.lib.predicate.Predicate', function () {
+  'use strict';
+
   var _isTrue;
 
   beforeEach(module('hm.lib.predicate'));
