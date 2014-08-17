@@ -111,7 +111,7 @@
   }
 
   function isNumber(value) {
-    return typeof value === 'number';
+    return typeof value === 'number' && value === value;
   }
 
   function isPositive(value) {
