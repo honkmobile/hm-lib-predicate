@@ -10,15 +10,15 @@ describe('hm.lib.predicate.Predicate', function () {
 
   describe('contains', function () {
     it('should return true if an array contains the given number', function () {
-      var i, number, collection, _containsNumber;
+      var number, collection, _containsNumber;
 
-      for (i = 0; i < 10000; i++) {
+      _.range(10000).forEach(function () {
         number          = Math.random();
         collection      = randomCollectionWith(number);
         _containsNumber = _contains(number);
 
         expect(_containsNumber(collection)).toBe(true);
-      }
+      });
     });
   });
 
@@ -30,6 +30,11 @@ describe('hm.lib.predicate.Predicate', function () {
   });
 
   function randomCollectionWith(number) {
-    return [Math.random(), Math.random(), number, Math.random()];
+    var collection = _.range(100).map(Math.random);
+
+    collection.push(number);
+    collection = _.shuffle(collection);
+
+    return collection;
   }
 });
