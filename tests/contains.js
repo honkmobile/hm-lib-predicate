@@ -20,13 +20,13 @@ describe('hm.lib.predicate.Predicate', function () {
         expect(_containsNumber(collection)).toBe(true);
       });
     });
-  });
 
-  it('should return false given an empty collection and any curried argument', function () {
-    expect(_contains(Math.random())([])).toBe(false);
-    expect(_contains(Math.random().toString())([])).toBe(false);
-    expect(_contains(true)([])).toBe(false);
-    expect(_contains(false)([])).toBe(false);
+    it('should return false given an empty collection and any curried argument', function () {
+      expect(_contains(Math.random())([])).toBe(false);
+      expect(_contains(Math.random().toString())([])).toBe(false);
+      expect(_contains(true)([])).toBe(false);
+      expect(_contains(false)([])).toBe(false);
+    });
   });
 
   function randomCollectionWith(number) {
