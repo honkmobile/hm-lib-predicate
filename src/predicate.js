@@ -11,11 +11,14 @@
   function predicateFactory() {
     return {
       all: all,
+      and: all, // alias
       any: any,
       contains: contains,
+      each: each,
       equals: equals,
       hasProperty: hasProperty,
       is: is,
+      isEmpty: isEmpty,
       isFalse: isFalse,
       isIn: isIn,
       isLongEnough: isLongEnough,
@@ -27,6 +30,7 @@
       isValidMoment: isValidMoment,
       isWhole: isWhole,
       not: not,
+      or: any, // alias
     };
   }
 
@@ -64,6 +68,20 @@
     };
   }
 
+  function each(predicate) {
+    return function (collection) {
+      var i;
+
+      for (i in collection) {
+        if (!predicate(collection[i])) {
+          return false;
+        }
+      }
+
+      return true;
+    };
+  }
+
   function equals(value) {
     return function (candidate) {
       return value == candidate;
@@ -80,6 +98,10 @@
     return function (candidate) {
       return value === candidate;
     };
+  }
+
+  function isEmpty(collection) {
+    return collection.length === 0;
   }
 
   function isFalse(value) {
