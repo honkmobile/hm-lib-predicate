@@ -33,6 +33,15 @@ describe('hm.lib.predicate.Predicate', function () {
       });
     });
 
+    it('should work with boolean as curried argument', function () {
+      expect(_contains(true)([true, false])).toBe(true);
+      expect(_contains(false)([true, false])).toBe(true);
+      expect(_contains(true)([false])).toBe(false);
+      expect(_contains(false)([true])).toBe(false);
+      expect(_contains(true)([1])).toBe(false);
+      expect(_contains(false)([0])).toBe(false);
+    });
+
     it('should return false given an empty collection and any curried argument', function () {
       expect(_contains(Math.random())([])).toBe(false);
       expect(_contains(Math.random().toString())([])).toBe(false);
