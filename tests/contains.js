@@ -21,7 +21,7 @@ describe('hm.lib.predicate.Predicate', function () {
       });
     });
 
-    it('should retunr true if an array contains the given string', function () {
+    it('should return true if an array contains the given string', function () {
       var string, collection, _containsString;
 
       _.range(10000).forEach(function () {
