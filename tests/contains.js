@@ -21,6 +21,18 @@ describe('hm.lib.predicate.Predicate', function () {
       });
     });
 
+    it('should retunr true if an array contains the given string', function () {
+      var string, collection, _containsString;
+
+      _.range(10000).forEach(function () {
+        string          = Math.random().toString();
+        collection      = randomCollectionWith(string);
+        _containsString = _contains(string);
+
+        expect(_containsString(collection)).toBe(true);
+      });
+    });
+
     it('should return false given an empty collection and any curried argument', function () {
       expect(_contains(Math.random())([])).toBe(false);
       expect(_contains(Math.random().toString())([])).toBe(false);
