@@ -18,6 +18,7 @@ module.exports = function(config) {
       './node_modules/underscore/underscore.js',
       './bower_components/angular/angular.js',
       './bower_components/angular-mocks/angular-mocks.js',
+      './bower_components/chance/chance.js',
       './src/predicate.js',
       './tests/*.js'
     ],

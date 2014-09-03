@@ -51,7 +51,7 @@ describe('hm.lib.predicate.Predicate', function () {
   });
 
   function randomCollectionWith(number) {
-    var collection = _.range(100).map(Math.random);
+    var collection = _.range(100).map(function () { return chance.integer(); });
 
     collection.push(number);
     collection = _.shuffle(collection);
