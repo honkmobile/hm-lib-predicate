@@ -6,6 +6,7 @@
     "Ryan Albon <ryan@honkmobile.com>"
   ],
   "description": "An AngularJS service exporting a collection of predicate functions",
+  "keywords": ["angular", "predicate"],
   "main": "./src/predicate.js",
   "license": "MIT",
   "dependencies": {
