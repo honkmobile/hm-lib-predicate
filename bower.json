@@ -8,7 +8,6 @@
   "description": "An AngularJS service exporting a collection of predicate functions",
   "main": "./src/predicate.js",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "angular": ">=1.0 <2.0"
   },
