@@ -32,12 +32,41 @@ angular.module('your.app', ['hm.lib.predicate']);
 Usage
 -----
 
+```javascript
+function yourService(p) {
+  var equals100 = p.equals(100);
+
+  equals100(100); // true
+  equals100(99); // false
+
+  var isRedOrBlue = p.isOneOf(['red', 'blue']);
+
+  isRedOrBlue('red'); // true
+  isRedOrBlue('green'); // false
+  isRedOrBlue('blue'); // true
+
+  p.isTrue(true); // true
+  p.isTrue(false); // false
+
+  // etc.
+}
+
+angular.module('your.app').factory('your.app.YourService', [
+  'hm.lib.predicate.Predicate', // inject the Predicate service
+  yourService
+]);
+```
+
+Filtering
+~~~~~~~~~
+
 The ``hm.lib.predicate`` module exports a single service,
 ``hm.lib.predicate.Predicate``, which provides a collection
 of predicate-generator functions. These functions can be
-very useful when used with functional JavaScript utilities
-provided by libraries like Underscore or Lo-Dash (or the
-ones baked into ES5+):
+very useful for searching collections for values satisfying
+some particular criteria. This is especilly easy when used
+certain utilities/helpers provided by libraries like
+Underscore or Lo-Dash:
 
 ```javascript
 function yourService(p) {
@@ -62,12 +91,10 @@ function yourService(p) {
   };
 }
 
-// inject the hm.lib.predicate.Predicate service
-// into your controller/service/etc to get access
-// to the predicate functions it exports
-widgetFactory.$inject = ['hm.lib.predicate.Predicate'];
-
-angular.module('your.app').factory('your.app.YourService', yourService);
+angular.module('your.app').factory('your.app.YourService', [
+  'hm.lib.predicate.Predicate',
+  yourService
+]);
 ```
 
 Contributing
