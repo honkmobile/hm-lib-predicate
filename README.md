@@ -57,8 +57,7 @@ angular.module('your.app').factory('your.app.YourService', [
 ]);
 ```
 
-Filtering
-~~~~~~~~~
+### Filtering
 
 The ``hm.lib.predicate`` module exports a single service,
 ``hm.lib.predicate.Predicate``, which provides a collection
