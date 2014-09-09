@@ -3,6 +3,14 @@ README
 
 [![Build Status](https://travis-ci.org/honkmobile/hm-lib-predicate.svg?branch=master)](https://travis-ci.org/honkmobile/hm-lib-predicate)
 
+hm-lib-predicate is an AnguarJS module, ``hm.lib.predicate``, that ships
+with a single service, ``hm.lib.predicate.Predicate``, which exports a
+collection of configurable boolean predicates.
+
+Predicates are especially useful for finding those elements of a data set
+satisfying some criteria, and for performing validation on objects, values,
+and collections thereof.
+
 Installation
 ------------
 
@@ -59,13 +67,7 @@ angular.module('your.app').factory('your.app.YourService', [
 
 ### Filtering
 
-The ``hm.lib.predicate`` module exports a single service,
-``hm.lib.predicate.Predicate``, which provides a collection
-of predicate-generator functions. These functions can be
-very useful for searching collections for values satisfying
-some particular criteria. This is especilly easy when used
-certain utilities/helpers provided by libraries like
-Underscore or Lo-Dash:
+Assuming you're using Underscore.js or Lo-Dash in your project:
 
 ```javascript
 function yourService(p) {
@@ -85,7 +87,7 @@ function yourService(p) {
           colourIsValid = _.compose(p.isOneOf(['red', 'blue']), _.property('colour')),
           widgetIsValid = p.and(nameIsValid, colourIsValid);
 
-      return widgets.filter(widgetIsValid);
+      return _.filter(widgets, widgetIsValid);
     },
   };
 }
