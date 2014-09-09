@@ -98,3 +98,8 @@ angular.module('your.app').factory('your.app.YourService', [
 
 Contributing
 ------------
+
+License
+-------
+
+[MIT](LICENSE)
