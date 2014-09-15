@@ -38,7 +38,9 @@
     var predicates = Array.prototype.slice.call(arguments);
 
     return function (value) {
-      for (var i in predicates) {
+      var i;
+
+      for (i in predicates) {
         if (!predicates[i](value)) {
           return false;
         }
@@ -52,7 +54,9 @@
     var predicates = Array.prototype.slice.call(arguments);
 
     return function (value) {
-      for (var i in predicates) {
+      var i;
+
+      for (i in predicates) {
         if (predicates[i](value)) {
           return true;
         }
