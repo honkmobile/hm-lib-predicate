@@ -1,12 +1,15 @@
 {
   "name": "hm-lib-predicate",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://github.com/honkmobile/hm-lib-predicate",
   "authors": [
     "Ryan Albon <ryan@honkmobile.com>"
   ],
   "description": "An AngularJS service exporting a collection of predicate functions",
-  "keywords": ["angular", "predicate"],
+  "keywords": [
+    "angular",
+    "predicate"
+  ],
   "main": "./src/predicate.js",
   "license": "MIT",
   "dependencies": {
