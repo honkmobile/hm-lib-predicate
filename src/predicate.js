@@ -31,6 +31,7 @@
       isWhole: isWhole,
       not: not,
       or: any, // alias
+      satisfies: satisfies,
     };
   }
 
@@ -151,6 +152,12 @@
   function not(pred) {
     return function (value) {
       return !pred(value);
+    };
+  }
+
+  function satisfies(regex) {
+    return function (value) {
+      return regex.test(value);
     };
   }
 
