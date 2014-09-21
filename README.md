@@ -2,6 +2,7 @@ README
 ======
 
 [![Build Status](https://travis-ci.org/honkmobile/hm-lib-predicate.svg?branch=master)](https://travis-ci.org/honkmobile/hm-lib-predicate)
+[![Coverage Status](https://img.shields.io/coveralls/honkmobile/hm-lib-predicate.svg)](https://coveralls.io/r/honkmobile/hm-lib-predicate?branch=master)
 
 hm-lib-predicate is an AnguarJS module, ``hm.lib.predicate``, that ships
 with a single service, ``hm.lib.predicate.Predicate``, which exports a
