@@ -35,6 +35,12 @@
     };
   }
 
+  /**
+    ## all(predicates)(value)
+
+    Returns ``true`` if ``value`` satisfies every predicate
+    in ``predicates``, ``false`` otherwise
+  **/
   function all(/* predicates */) {
     var predicates = Array.prototype.slice.call(arguments);
 
@@ -51,6 +57,12 @@
     };
   }
 
+  /**
+    ## any(predicates)(value)
+
+    Returns ``true`` if ``value`` satisfied at at least
+    one predicate in ``predicates``, false otherwise
+  **/
   function any(/* predicates */) {
     var predicates = Array.prototype.slice.call(arguments);
 
