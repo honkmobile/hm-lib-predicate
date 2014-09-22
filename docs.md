@@ -13,7 +13,20 @@ given predicate, false otherwise
 Returns ``true`` if ``value`` is an element of ``collection``,
 false otherwise
 
-** each(predicate)(collection)
+## each(predicate)(collection)
 
 Returns ``true`` if every element of ``collection`` satisfies
 ``predicate``, ``false`` otherwise
+
+## equals(value)(candidate)
+
+Returns ``true`` if ``value`` is equivalent (but not necessarily identical) to ``candidate``,
+``false`` otherwise
+
+## hasProperty(property)(obj)
+
+Returns ``true`` if the ``property`` key exists on the ``obj`` object, ``false`` otherwise
+
+## is(value)(candidate)
+
+Returns ``true`` if ``value`` is identical to ``candidate``, ``false`` otherwise

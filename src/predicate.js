@@ -92,7 +92,7 @@
   }
 
   /**
-    ** each(predicate)(collection)
+    ## each(predicate)(collection)
 
     Returns ``true`` if every element of ``collection`` satisfies
     ``predicate``, ``false`` otherwise
@@ -111,18 +111,34 @@
     };
   }
 
+  /**
+    ## equals(value)(candidate)
+
+    Returns ``true`` if ``value`` is equivalent (but not necessarily identical) to ``candidate``,
+    ``false`` otherwise
+  **/
   function equals(value) {
     return function (candidate) {
       return value == candidate;
     };
   }
 
+  /**
+    ## hasProperty(property)(obj)
+
+    Returns ``true`` if the ``property`` key exists on the ``obj`` object, ``false`` otherwise
+  **/
   function hasProperty(property) {
     return function (obj) {
       return property in obj;
     };
   }
 
+  /**
+    ## is(value)(candidate)
+
+    Returns ``true`` if ``value`` is identical to ``candidate``, ``false`` otherwise
+  **/
   function is(value) {
     return function (candidate) {
       return value === candidate;
