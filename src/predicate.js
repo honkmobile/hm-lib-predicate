@@ -36,10 +36,10 @@
   }
 
   /**
-    ## all(predicates)(value)
+    ## all(predicate<sub>1</sub>, predicate<sub>2</sub>, ...)(value)
 
-    Returns ``true`` if ``value`` satisfies every predicate
-    in ``predicates``, ``false`` otherwise
+    Returns ``true`` if ``value`` satisfies every given predicate
+    ``false`` otherwise
   **/
   function all(/* predicates */) {
     var predicates = Array.prototype.slice.call(arguments);
@@ -58,10 +58,10 @@
   }
 
   /**
-    ## any(predicates)(value)
+    ## any(predicate<sub>1</sub>, predicate<sub>2</sub>, ...)(value)
 
-    Returns ``true`` if ``value`` satisfied at at least
-    one predicate in ``predicates``, false otherwise
+    Returns ``true`` if ``value`` satisfies at least one
+    given predicate, false otherwise
   **/
   function any(/* predicates */) {
     var predicates = Array.prototype.slice.call(arguments);
