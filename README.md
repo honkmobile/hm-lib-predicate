@@ -38,6 +38,11 @@ dependencies, like so:
 angular.module('your.app', ['hm.lib.predicate']);
 ```
 
+API
+---
+
+[API](docs.md)
+
 Usage
 -----
 
@@ -62,39 +67,6 @@ function yourService(p) {
 
 angular.module('your.app').factory('your.app.YourService', [
   'hm.lib.predicate.Predicate', // inject the Predicate service
-  yourService
-]);
-```
-
-### Filtering
-
-Assuming you're using Underscore.js or Lo-Dash in your project:
-
-```javascript
-function yourService(p) {
-  return {
-    /**
-     * Return all widgets where widget.status == 'CONFIRMED'
-     */
-    getConfirmedWidgets: function (widgets) {
-      return _.filter(widgets, _.compose(p.equals('CONFIRMED'), _.property('status')));
-    },
-
-    /**
-     * Get all valid widgets (name is a 3+ character string, colour is either red or blue)
-     */
-    getValidWidgets: function (widgets) {
-      var nameIsValid   = _.compose(p.and(_.isString, p.isLongEnough(3)), _.property('name')),
-          colourIsValid = _.compose(p.isOneOf(['red', 'blue']), _.property('colour')),
-          widgetIsValid = p.and(nameIsValid, colourIsValid);
-
-      return _.filter(widgets, widgetIsValid);
-    },
-  };
-}
-
-angular.module('your.app').factory('your.app.YourService', [
-  'hm.lib.predicate.Predicate',
   yourService
 ]);
 ```
