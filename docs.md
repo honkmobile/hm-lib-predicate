@@ -7,3 +7,13 @@ Returns ``true`` if ``value`` satisfies every given predicate
 
 Returns ``true`` if ``value`` satisfies at least one
 given predicate, false otherwise
+
+## contains(value)(collection)
+
+Returns ``true`` if ``value`` is an element of ``collection``,
+false otherwise
+
+** each(predicate)(collection)
+
+Returns ``true`` if every element of ``collection`` satisfies
+``predicate``, ``false`` otherwise

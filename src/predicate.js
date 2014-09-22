@@ -79,12 +79,24 @@
     };
   }
 
+  /**
+    ## contains(value)(collection)
+
+    Returns ``true`` if ``value`` is an element of ``collection``,
+    false otherwise
+  **/
   function contains(value) {
     return function (collection) {
       return collection.indexOf(value) > -1;
     };
   }
 
+  /**
+    ** each(predicate)(collection)
+
+    Returns ``true`` if every element of ``collection`` satisfies
+    ``predicate``, ``false`` otherwise
+  **/
   function each(predicate) {
     return function (collection) {
       var i;
